@@ -665,7 +665,7 @@ footer {
       <a href="/writing" class="see-all">All articles &rarr;</a>
     </div>
     <div class="article-grid">
-      {% set recentArticles = collections.articles | first(3) %}
+      {% set recentArticles = collections.articles | limit(3) %}
       {% if recentArticles and recentArticles.length > 0 %}
         {% for article in recentArticles %}
           <a href="{{ article.url }}" class="article-card {% if loop.first %}featured{% endif %}">
