@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} — Eugene Chetty</title>
+<meta name="description" content="{{ summary }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #080E0D;
+  --bg-light: #F5F7F6;
+  --bg-mid: #ECF0EF;
+  --text-dark: #0A0F0E;
+  --text-light: #EEF4F3;
+  --accent: #0A7A6A;
+  --accent-light: #0DA08C;
+  --text-secondary: #6B7876;
+  --text-secondary-light: #8FA49F;
+  --border: #D8E2E0;
+  --border-dark: #152320;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg-light); color: var(--text-dark); -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 22px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(8,14,13,0.97);
+  border-bottom: 1px solid var(--border-dark);
+  backdrop-filter: blur(8px);
+}
+.nav-name { font-family: var(--font-display); font-size: 18px; font-weight: 500; color: var(--text-light); text-decoration: none; }
+.nav-back { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary-light); text-decoration: none; transition: color 0.2s; }
+.nav-back:hover { color: var(--text-light); }
+
+.article-hero {
+  padding: 140px 48px 80px;
+  background: var(--bg-dark);
+  max-width: none;
+}
+.article-hero-inner { max-width: 800px; margin: 0 auto; }
+.article-tag { font-size: 10px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+.article-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300; color: var(--text-light);
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px;
+}
+.article-meta { font-size: 13px; font-weight: 300; color: var(--text-secondary-light); display: flex; gap: 20px; align-items: center; }
+.meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border-dark); }
+
+.article-body-wrap { padding: 72px 48px 100px; }
+.article-body { max-width: 680px; margin: 0 auto; }
+
+.article-body h2 {
+  font-family: var(--font-display); font-size: 32px; font-weight: 400;
+  color: var(--text-dark); line-height: 1.2; letter-spacing: -0.01em;
+  margin: 48px 0 20px;
+}
+.article-body h3 {
+  font-family: var(--font-display); font-size: 24px; font-weight: 400;
+  color: var(--text-dark); margin: 36px 0 16px;
+}
+.article-body p { font-size: 17px; font-weight: 300; color: #2A3532; line-height: 1.85; margin-bottom: 24px; }
+.article-body p:first-child { font-size: 19px; color: var(--text-dark); }
+.article-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); transition: opacity 0.2s; }
+.article-body a:hover { opacity: 0.7; }
+.article-body blockquote {
+  border-left: 2px solid var(--accent); padding-left: 28px;
+  margin: 36px 0;
+  font-family: var(--font-display); font-size: 24px; font-weight: 400;
+  font-style: italic; color: var(--text-dark); line-height: 1.4;
+}
+.article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 24px; }
+.article-body li { font-size: 16px; font-weight: 300; color: #2A3532; line-height: 1.8; margin-bottom: 8px; }
+.article-body hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+.article-body strong { font-weight: 500; color: var(--text-dark); }
+
+.article-footer { padding: 48px; border-top: 1px solid var(--border); max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.back-link { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+.back-link:hover { opacity: 0.7; }
+
+footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; }
+.footer-name { font-family: var(--font-display); font-size: 15px; color: var(--text-secondary-light); }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-size: 11px; color: var(--text-secondary-light); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text-light); }
+
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .article-hero { padding: 120px 24px 60px; }
+  .article-body-wrap { padding: 48px 24px 72px; }
+  .article-footer { padding: 32px 24px; }
+  footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-name">Eugene Chetty</a>
+  <a href="/writing" class="nav-back">&larr; All writing</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <span class="article-tag">{{ tag }}</span>
+    <h1 class="article-title">{{ title }}</h1>
+    <div class="article-meta">
+      <span>{{ date | dateDisplay }}</span>
+      <div class="meta-dot"></div>
+      <span>{{ readtime }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body-wrap">
+  <article class="article-body">
+    {{ content | safe }}
+  </article>
+  <div class="article-footer">
+    <a href="/writing" class="back-link">&larr; All writing</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Eugene Chetty &mdash; Wellington, NZ</div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/writing">Writing</a></li>
+    <li><a href="/#lab">Lab</a></li>
+    <li><a href="mailto:hello@eugenechetty.com">Contact</a></li>
+  </ul>
+</footer>
+</body>
+</html>

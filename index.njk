@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eugene Chetty — Marketing & Digital Director</title>
+<meta name="description" content="Eugene Chetty is a Marketing and Digital Director specialising in regulated industries. The translator between creative ambition and commercial rigour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #080E0D;
+  --bg-light: #F5F7F6;
+  --bg-mid: #ECF0EF;
+  --text-dark: #0A0F0E;
+  --text-light: #EEF4F3;
+  --accent: #0A7A6A;
+  --accent-light: #0DA08C;
+  --text-secondary: #6B7876;
+  --text-secondary-light: #8FA49F;
+  --border: #D8E2E0;
+  --border-dark: #152320;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, border-bottom 0.4s;
+}
+nav.scrolled {
+  background: rgba(12,12,11,0.97);
+  border-bottom: 1px solid var(--border-dark);
+  backdrop-filter: blur(8px);
+}
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary-light);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-light); }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 88px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(100px, 17vw, 260px);
+  font-weight: 600;
+  color: transparent;
+  -webkit-text-stroke: 1px #1C1C1A;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6.5vw, 90px);
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  max-width: 860px;
+  margin-bottom: 36px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-secondary-light);
+  max-width: 500px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent-light); }
+.btn-ghost {
+  display: inline-block;
+  padding: 13px 28px;
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary-light);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+  border-color: #555;
+  color: var(--text-light);
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3A3A38;
+}
+.scroll-line {
+  width: 36px;
+  height: 1px;
+  background: #2A2A28;
+}
+
+/* SHARED SECTION STYLES */
+.section-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+}
+
+/* THESIS */
+#thesis {
+  padding: 100px 48px;
+  background: var(--bg-light);
+}
+.thesis-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: start;
+}
+.thesis-quote {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--text-dark);
+  border-left: 2px solid var(--accent);
+  padding-left: 28px;
+  margin-bottom: 40px;
+}
+.thesis-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.stat-stack { display: flex; flex-direction: column; }
+.stat-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+.stat-item:first-child { border-top: 1px solid var(--border); }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* CAPABILITIES */
+#capabilities {
+  background: var(--bg-dark);
+  padding: 100px 48px;
+}
+#capabilities .section-label { color: var(--accent); }
+#capabilities .section-title {
+  color: var(--text-light);
+  margin-bottom: 64px;
+}
+.cap-inner { max-width: 1200px; margin: 0 auto; }
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.cap-item {
+  padding: 40px 36px 40px 0;
+  border-left: 1px solid var(--border-dark);
+  padding-left: 32px;
+  position: relative;
+}
+.cap-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 32px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.5s ease;
+}
+.cap-item:hover::after { width: calc(100% - 32px); }
+.cap-number {
+  display: block;
+  font-size: 11px;
+  font-family: var(--font-display);
+  color: var(--accent);
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+.cap-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--text-light);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.cap-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary-light);
+  line-height: 1.75;
+}
+
+/* WRITING */
+#writing {
+  background: var(--bg-mid);
+  padding: 100px 48px;
+}
+.writing-inner { max-width: 1200px; margin: 0 auto; }
+.writing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+.writing-header .section-title { margin-bottom: 0; }
+.see-all {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.see-all:hover { opacity: 0.65; }
+.article-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2px;
+}
+.article-card {
+  background: var(--bg-light);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  min-height: 280px;
+}
+.article-card:hover { background: #fff; }
+.article-card.featured {
+  background: var(--bg-dark);
+  min-height: 320px;
+}
+.article-card.featured:hover { background: #171715; }
+.article-tag {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.article-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-dark);
+  margin-bottom: auto;
+  padding-bottom: 20px;
+}
+.article-card.featured .article-title { color: var(--text-light); }
+.article-title.large { font-size: 30px; }
+.article-meta {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-top: auto;
+}
+.article-card.featured .article-meta { color: var(--text-secondary-light); }
+
+/* LAB */
+#lab {
+  background: var(--bg-light);
+  padding: 100px 48px;
+}
+.lab-inner { max-width: 1200px; margin: 0 auto; }
+.lab-intro {
+  max-width: 520px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-top: -8px;
+  margin-bottom: 52px;
+}
+.lab-list { display: flex; flex-direction: column; }
+.lab-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  gap: 40px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: padding-left 0.2s;
+}
+.lab-item:first-child { border-top: 1px solid var(--border); }
+.lab-item:hover { padding-left: 8px; }
+.lab-status {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.lab-status.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lab-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.lab-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.lab-arrow {
+  font-size: 18px;
+  color: var(--border);
+  text-align: right;
+  transition: color 0.2s, transform 0.2s;
+}
+.lab-item:hover .lab-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* CONNECT */
+#connect {
+  background: var(--bg-dark);
+  padding: 128px 48px;
+  text-align: center;
+}
+.connect-inner { max-width: 680px; margin: 0 auto; }
+.connect-headline {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.connect-headline em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+.connect-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-secondary-light);
+  line-height: 1.8;
+  margin-bottom: 52px;
+}
+.connect-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary-light);
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 11px;
+  color: var(--text-secondary-light);
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-light); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  #hero, section { padding-left: 24px; padding-right: 24px; }
+  .thesis-inner { grid-template-columns: 1fr; gap: 52px; }
+  .cap-grid { grid-template-columns: 1fr 1fr; }
+  .article-grid { grid-template-columns: 1fr; }
+  .lab-item { grid-template-columns: 80px 1fr 32px; gap: 20px; }
+  footer { flex-direction: column; gap: 20px; text-align: center; padding: 24px; }
+  #connect { padding: 80px 24px; }
+  .writing-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+@media (max-width: 600px) {
+  .cap-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-scroll { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-name">Eugene Chetty</a>
+  <ul class="nav-links">
+    <li><a href="#thesis">About</a></li>
+    <li><a href="#capabilities">What I do</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#lab">Lab</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text" aria-hidden="true">EJC</div>
+  <div class="hero-label">Marketing &amp; Digital Director &mdash; Wellington, New Zealand</div>
+  <h1 class="hero-headline">
+    The gap between<br>
+    creative <em>ambition</em><br>
+    and commercial rigour<br>
+    is where most<br>
+    marketing fails.
+  </h1>
+  <p class="hero-sub">
+    I close it. Twenty years across energy, financial services, and media — in the industries where this gap is most expensive.
+  </p>
+  <div class="hero-actions">
+    <a href="#writing" class="btn-primary">How I think</a>
+    <a href="#connect" class="btn-ghost">Start a conversation</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- THESIS -->
+<section id="thesis">
+  <div class="thesis-inner">
+    <div class="thesis-left">
+      <span class="section-label">The translator problem</span>
+      <blockquote class="thesis-quote">
+        "Most regulated industries don't have an innovation problem. They have a translator problem."
+      </blockquote>
+      <p class="thesis-body">
+        No one in the room can hold creative ambition and analytical rigour at the same time. The result: creative teams produce work that can't be measured. Data teams produce insights that can't be felt. Leadership funds neither properly because they can't reconcile them.
+      </p>
+      <p class="thesis-body">
+        I've spent twenty years watching this play out across four continents, in South Africa, The UK, Australian markets, North America, and New Zealand. The industries are different. The regulators are different. The cultures are completely different. The translator gap is identical every time.
+      </p>
+      <p class="thesis-body">
+        That pattern isn't a coincidence. Regulated industries share a structural problem: the commercial constraints are so specific and so rigid that most creative thinkers disengage, and most analytical thinkers never develop the instinct to build something worth feeling. The translator — someone genuinely fluent in both — is the rarest hire in these categories, and the most valuable one.
+      </p>
+      <p class="thesis-body">
+        This site is where I work that thesis out loud — through writing, experiments, and the occasional uncomfortable observation.
+      </p>
+    </div>
+    <div class="thesis-right">
+      <div class="stat-stack">
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Years in marketing and digital leadership across New Zealand, The UK and African markets</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10</div>
+          <div class="stat-label">Industries - financial services, energy, telecommunications, media, FMCG, retail, automotive, technology, betting and healthcare</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Continents — Africa, Europe, Australasia, and North America, including 20+ markets</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Consistent pattern: the translator gap, everywhere, every time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="cap-inner">
+    <span class="section-label">What I do</span>
+    <h2 class="section-title">Where I create value</h2>
+      <div class="cap-grid">
+      <div class="cap-item">
+        <span class="cap-number">01</span>
+        <div class="cap-title">Digital Capability Transformation</div>
+        <p class="cap-desc">Organisations call me in when their digital marketing function is broken, siloed, or hasn't kept pace. I've rebuilt or unified digital capabilities at Barclays Bank, Standard Bank, Microsoft, and MultiChoice — transitioning teams, restructuring functions, and leaving them with the infrastructure to keep evolving without me.</p>
+      </div>
+      <div class="cap-item">
+        <span class="cap-number">02</span>
+        <div class="cap-title">Performance Mindset Before Performance Tools</div>
+        <p class="cap-desc">Most digital performance work fails because the tools go in before the culture does. My approach starts by getting the business to think in performance terms — then instrumenting it, then optimising. The data is always messy. That's not an obstacle, that's the job.</p>
+      </div>
+      <div class="cap-item">
+        <span class="cap-number">03</span>
+        <div class="cap-title">Commercial Innovation</div>
+        <p class="cap-desc">Not campaigns — commercial ideas that have never been done before and drive measurable results. When South Africa's load-shedding crisis hit, we turned it into a consumer engine for DStv. #ShedHappens drove app downloads and usage, and won a Promax award. The brief was a crisis. The output was growth.</p>
+      </div>
+      <div class="cap-item">
+        <span class="cap-number">04</span>
+        <div class="cap-title">Building Teams That Outlast You</div>
+        <p class="cap-desc">I have strong ideas, but I know they need a strong team to land. My focus is building marketing and digital functions where the capability stays when people move on — through clear process, genuine development, and teams that understand both the creative and commercial sides of what they're building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="writing-inner">
+    <div class="writing-header">
+      <div>
+        <span class="section-label">How I think</span>
+        <h2 class="section-title">Writing</h2>
+      </div>
+      <a href="/writing" class="see-all">All articles &rarr;</a>
+    </div>
+    <div class="article-grid">
+      {% set recentArticles = collections.articles | first(3) %}
+      {% if recentArticles and recentArticles.length > 0 %}
+        {% for article in recentArticles %}
+          <a href="{{ article.url }}" class="article-card {% if loop.first %}featured{% endif %}">
+            <div class="article-tag">{{ article.data.tag }}</div>
+            <h3 class="article-title {% if loop.first %}large{% endif %}">{{ article.data.title }}</h3>
+            <div class="article-meta">{{ article.data.date | dateDisplay }} &mdash; {{ article.data.readtime }}</div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="article-card featured">
+          <div class="article-tag">Marketing leadership</div>
+          <h3 class="article-title large">First article coming soon</h3>
+          <div class="article-meta">Check back shortly</div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section id="lab">
+  <div class="lab-inner">
+    <span class="section-label">Currently testing</span>
+    <h2 class="section-title">The Lab</h2>
+    <p class="lab-intro">
+      Things I'm actively building, breaking, and learning from. Some ship. Most don't. All of them change how I think.
+    </p>
+    <div class="lab-list">
+      {% for item in collections.lab %}
+      <a href="{{ item.data.url if item.data.url else '#' }}" class="lab-item">
+        <div><span class="lab-status {% if item.data.status == 'Active' %}active{% endif %}">{{ item.data.status }}</span></div>
+        <div>
+          <div class="lab-title">{{ item.data.title }}</div>
+          <div class="lab-desc">{{ item.data.description }}</div>
+        </div>
+        <div class="lab-arrow">&rarr;</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="connect-inner">
+    <span class="section-label">Let's talk</span>
+    <h2 class="connect-headline">If the translator<br>problem sounds <em>familiar</em></h2>
+    <p class="connect-sub">
+      I'm open to conversations about senior marketing and digital leadership roles, advisory work, and the occasional project that sits awkwardly between strategy and execution. That's usually where the interesting problems live.
+    </p>
+    <div class="connect-actions">
+      <a href="mailto:hello@eugenechetty.com" class="btn-primary">Send a message</a>
+      <a href="https://linkedin.com/in/eugenejchetty" class="btn-ghost" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Eugene Chetty &mdash; Wellington, NZ</div>
+  <ul class="footer-links">
+    <li><a href="#thesis">About</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#lab">Lab</a></li>
+    <li><a href="mailto:hello@eugenechetty.com">Contact</a></li>
+    <li><a href="https://linkedin.com/in/eugenejchetty" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+</script>
+</body>
+</html>

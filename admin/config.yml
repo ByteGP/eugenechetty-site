@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tag", name: "tag", widget: "string", hint: "e.g. Marketing leadership, Analytics, AI & brand" }
+      - { label: "Read time", name: "readtime", widget: "string", hint: "e.g. 6 min read" }
+      - { label: "Summary", name: "summary", widget: "text", hint: "One sentence shown on the writing listing page" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "lab"
+    label: "Lab"
+    folder: "lab"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["Active", "Exploring", "Completed", "Paused"] }
+      - { label: "Description", name: "description", widget: "text", hint: "One or two sentences shown on the homepage" }
+      - { label: "URL", name: "url", widget: "string", required: false, hint: "Optional link if this experiment has a page or external resource" }
+      - { label: "Order", name: "order", widget: "number", hint: "Display order on homepage — lower numbers appear first", default: 10 }
